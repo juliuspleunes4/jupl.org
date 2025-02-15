@@ -53,6 +53,12 @@ nav {
     opacity: 1;
 }
 
+.nav-links a:hover {
+    color: #5271FF;
+    transition: color 0.3s ease-in-out;
+}
+
+
 /* Main Content */
 main {
     height: 100vh;
@@ -95,7 +101,7 @@ main {
 }
 
 .btn:hover {
-    border-color: #fff;
+    border-color: #5271ff;
 }
 
 /* Fade-in effect voor tekst en knoppen */
