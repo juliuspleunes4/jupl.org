@@ -38,3 +38,12 @@ document.addEventListener("DOMContentLoaded", () => {
     // Start het type-effect na een halve seconde
     setTimeout(typeWriterEffect, 800);
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    fetch("earth/earth.html")
+        .then(response => response.text())
+        .then(html => {
+            document.getElementById("earth-container").innerHTML = html;
+        })
+        .catch(error => console.error("Error loading Earth UI:", error));
+});
