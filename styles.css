@@ -64,38 +64,22 @@ main {
     font-size: 20vw;
     font-weight: 900;
     color: transparent;
-    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.1);
-    position: relative;
-    transition: all 0.3s;
+    text-transform: uppercase;
 }
 
-.jupl-text::before {
-    content: 'JUPL';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 100%;
-    color: transparent;
-    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.5);
-    border-right: 2px solid rgba(255, 255, 255, 0.5);
-    overflow: hidden;
-    animation: write 2s steps(4) forwards;
+/* Typewriter cursor effect */
+.cursor {
+    font-size: 20vw;
+    font-weight: 900;
+    color: white;
+    animation: blink 0.7s infinite;
 }
 
-@keyframes write {
-    0% { width: 0; }
-    100% { width: 100%; }
-}
-
-.jupl-text:hover {
-    -webkit-text-stroke: 1px transparent;
-    background: linear-gradient(90deg, 
-        rgba(0,255,255,0.2) 0%,
-        rgba(0,255,0,0.2) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    box-shadow: 0 0 30px rgba(0,255,255,0.1);
+/* Knipperend cursor-effect */
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
 }
 
 .content {
