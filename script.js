@@ -12,9 +12,28 @@ document.addEventListener("DOMContentLoaded", () => {
             index++;
             setTimeout(typeWriterEffect, 300); // Snelheid van het typen
         } else {
-            cursorElement.style.display = "none"; // Verwijder de cursor na het typen
+            // Laat de cursor 5 sec knipperen voordat alles verdwijnt
+            setTimeout(eraseText, 5000);
         }
     }
-    
-    setTimeout(typeWriterEffect, 500); // Start het type-effect na een halve seconde
+
+    function eraseText() {
+        if (textElement.textContent.length > 0) {
+            textElement.textContent = textElement.textContent.slice(0, -1);
+            setTimeout(eraseText, 100); // Snellere delete-snelheid
+        } else {
+            cursorElement.style.display = "none"; // Verberg de cursor tijdelijk
+            setTimeout(restartTyping, 1000); // 1 sec pauze voordat het opnieuw begint
+        }
+    }
+
+    function restartTyping() {
+        index = 0;
+        cursorElement.style.display = "inline"; // Cursor weer laten verschijnen
+        textElement.style.color = "transparent"; // Reset de tekstkleur
+        typeWriterEffect(); // Start opnieuw
+    }
+
+    // Start het type-effect na een halve seconde
+    setTimeout(typeWriterEffect, 500);
 });

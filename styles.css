@@ -46,26 +46,47 @@ nav a.active {
     opacity: 1;
 }
 
+
 main {
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: center; /* Zorgt ervoor dat alles gecentreerd blijft */
     align-items: center;
     padding: 2rem;
 }
 
 .jupl-container {
     position: relative;
-    margin-bottom: 4rem;
+    height: 20vh; /* Behoudt ruimte voor de animatie */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: -4rem; /* Houdt ruimte tussen JUPL en de tekst */
+    margin-top: 7rem; /* Duwt JUPL naar beneden */
 }
+
+
+.content {
+    text-align: center;
+    margin-top: 15rem; /* Houdt afstand van JUPL */
+}
+
+
 
 .jupl-text {
     font-size: 20vw;
     font-weight: 900;
     color: transparent;
     text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 1em;
+    min-height: 1em; /* Behoudt hoogte, zelfs als de tekst leeg is */
 }
+
+
 
 /* Typewriter cursor effect */
 .cursor {
@@ -82,9 +103,8 @@ main {
     100% { opacity: 1; }
 }
 
-.content {
-    text-align: center;
-}
+
+
 
 h1 {
     font-size: 2.5rem;
