@@ -11,9 +11,9 @@ body {
     min-height: 100vh;
 }
 
+/* Navbar */
 nav {
     display: flex;
-    justify-content: flex-start;
     align-items: center;
     padding: 1rem 2rem;
     position: fixed;
@@ -22,143 +22,68 @@ nav {
     z-index: 100;
 }
 
+/* Logo linksboven */
 .logo {
-    font-weight: bold;
-    font-size: 1.5rem;
-    margin-right: 2rem;
+    display: flex;
+    align-items: center;
 }
 
-nav ul {
+.logo img {
+    width: 50px; /* Pas aan naar gewenste grootte */
+    height: auto;
+}
+
+/* Navbar rechts naast logo met een gap */
+.nav-links {
     display: flex;
     list-style: none;
     gap: 2rem;
+    margin-left: 3rem; /* Voegt ruimte tussen logo en navbar */
 }
 
-nav a {
+.nav-links a {
     color: #fff;
     text-decoration: none;
     opacity: 0.7;
     transition: opacity 0.3s;
 }
 
-nav a:hover,
-nav a.active {
+.nav-links a:hover,
+.nav-links a.active {
     opacity: 1;
 }
 
-
+/* Main Content */
 main {
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Zorgt ervoor dat alles gecentreerd blijft */
+    justify-content: center;
     align-items: center;
     padding: 2rem;
 }
 
+/* JUPL Animatie Container */
 .jupl-container {
     position: relative;
-    height: 20vh; /* Behoudt ruimte voor de animatie */
+    height: 20vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: -4rem; /* Houdt ruimte tussen JUPL en de tekst */
-    margin-top: 7rem; /* Duwt JUPL naar beneden */
+    margin-bottom: -4rem;
+    margin-top: 7rem;
 }
 
-
+/* Content onder JUPL */
 .content {
     text-align: center;
-    margin-top: 15rem; /* Houdt afstand van JUPL */
+    margin-top: 15rem;
 }
 
-
-
-.jupl-text {
-    font-size: 20vw;
-    font-weight: 900;
-    color: transparent; /* Geen kleur, alleen de witte outline */
-    -webkit-text-stroke: 2px white; /* Standaard witte outline */
-    text-transform: uppercase;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-width: 1em;
-    min-height: 1em;
-}
-
-/* Pseudo-element voor de gradient die alleen in de outline zichtbaar is */
-.jupl-text::before {
-    content: "JUPL";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    color: transparent;
-    -webkit-text-stroke: 2px transparent; /* Geen kleur standaard */
-    background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), 
-                rgba(0, 255, 255, 0.7) 0%, 
-                rgba(0, 255, 0, 0.7) 50%, 
-                transparent 80%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    opacity: 0; /* Standaard onzichtbaar */
-    transition: opacity 0.1s ease-out;
-}
-
-/* Maak het gradient-effect zichtbaar als de tekst aanwezig is */
-.jupl-text.visible::before {
-    opacity: 1;
-}
-
-/* Verberg de hele tekst inclusief outline tijdens de wisfase */
-.jupl-text.hidden {
-    -webkit-text-stroke: 2px transparent;
-}
-
-.jupl-text.hidden::before {
-    opacity: 0;
-}
-
-
-
-
-
-/* Typewriter cursor effect */
-.cursor {
-    font-size: 20vw;
-    font-weight: 900;
-    color: white;
-    animation: blink 0.7s infinite;
-}
-
-/* Knipperend cursor-effect */
-@keyframes blink {
-    0% { opacity: 0.5; }
-    50% { opacity: 0; }
-    100% { opacity: 0.5; }
-}
-
-
-
-
-h1 {
-    font-size: 2.5rem;
-    font-weight: normal;
-    margin-bottom: 2rem;
-    opacity: 0;
-    animation: fadeIn 0.5s ease forwards;
-    animation-delay: 2s;
-}
-
+/* Knoppen */
 .buttons {
     display: flex;
     gap: 1rem;
-    opacity: 0;
-    animation: fadeIn 0.5s ease forwards;
-    animation-delay: 2.2s;
 }
 
 .btn {
@@ -173,7 +98,93 @@ h1 {
     border-color: #fff;
 }
 
+/* Fade-in effect voor tekst en knoppen */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
+
+
+
+
+/* --------------------------------- */
+/* ----------JUPL TEXT-------------- */
+/* --------------------------------- */
+
+
+
+
+/* JUPL Animatie */
+.jupl-text {
+    font-size: 20vw;
+    font-weight: 900;
+    color: transparent;
+    -webkit-text-stroke: 2px white;
+    text-transform: uppercase;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 1em;
+    min-height: 1em;
+}
+
+/* JUPL Hover Gradient */
+.jupl-text::before {
+    content: "JUPL";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: transparent;
+    -webkit-text-stroke: 2px transparent;
+    background: linear-gradient(90deg, 
+                hsla(234, 100%, 70%, 1) 0%, 
+                hsla(164, 60%, 60%, 1) 49%, 
+                hsla(286, 43%, 46%, 1) 100%);
+                
+    -webkit-mask: linear-gradient(transparent, transparent), 
+                  linear-gradient(white, white);
+    -webkit-mask-clip: text, padding-box;
+    -webkit-mask-composite: intersect;
+
+    mask: linear-gradient(transparent, transparent), 
+          linear-gradient(white, white);
+    mask-clip: text, padding-box;
+    mask-composite: intersect;
+    
+    -webkit-background-clip: text;
+    background-clip: text;
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+}
+
+.jupl-text:hover::before {
+    opacity: 1;
+    -webkit-text-stroke: 2px transparent;
+}
+
+.jupl-text.hidden {
+    -webkit-text-stroke: 2px transparent;
+}
+
+.jupl-text.hidden::before {
+    opacity: 0;
+}
+
+/* Knipperende cursor */
+.cursor {
+    font-size: 20vw;
+    font-weight: 900;
+    color: white;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    0% { opacity: 0.5; }
+    50% { opacity: 0; }
+    100% { opacity: 0.5; }
+}
+
+

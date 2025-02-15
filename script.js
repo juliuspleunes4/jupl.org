@@ -37,14 +37,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Start het type-effect na een halve seconde
     setTimeout(typeWriterEffect, 800);
-
-    // Dynamische muis-tracking gradient op de outline
-    document.addEventListener("mousemove", (e) => {
-        const rect = juplText.getBoundingClientRect();
-        const x = ((e.clientX - rect.left) / rect.width) * 100;
-        const y = ((e.clientY - rect.top) / rect.height) * 100;
-
-        juplText.style.setProperty("--x", `${x}%`);
-        juplText.style.setProperty("--y", `${y}%`);
-    });
 });
