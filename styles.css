@@ -77,14 +77,52 @@ main {
 .jupl-text {
     font-size: 20vw;
     font-weight: 900;
-    color: transparent;
+    color: transparent; /* Geen kleur, alleen de witte outline */
+    -webkit-text-stroke: 2px white; /* Standaard witte outline */
     text-transform: uppercase;
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     min-width: 1em;
-    min-height: 1em; /* Behoudt hoogte, zelfs als de tekst leeg is */
+    min-height: 1em;
 }
+
+/* Pseudo-element voor de gradient die alleen in de outline zichtbaar is */
+.jupl-text::before {
+    content: "JUPL";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: transparent;
+    -webkit-text-stroke: 2px transparent; /* Geen kleur standaard */
+    background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), 
+                rgba(0, 255, 255, 0.7) 0%, 
+                rgba(0, 255, 0, 0.7) 50%, 
+                transparent 80%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    opacity: 0; /* Standaard onzichtbaar */
+    transition: opacity 0.1s ease-out;
+}
+
+/* Maak het gradient-effect zichtbaar als de tekst aanwezig is */
+.jupl-text.visible::before {
+    opacity: 1;
+}
+
+/* Verberg de hele tekst inclusief outline tijdens de wisfase */
+.jupl-text.hidden {
+    -webkit-text-stroke: 2px transparent;
+}
+
+.jupl-text.hidden::before {
+    opacity: 0;
+}
+
+
 
 
 
@@ -98,9 +136,9 @@ main {
 
 /* Knipperend cursor-effect */
 @keyframes blink {
-    0% { opacity: 1; }
+    0% { opacity: 0.5; }
     50% { opacity: 0; }
-    100% { opacity: 1; }
+    100% { opacity: 0.5; }
 }
 
 

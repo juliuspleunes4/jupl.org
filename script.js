@@ -1,19 +1,20 @@
 document.addEventListener("DOMContentLoaded", () => {
     const textElement = document.getElementById("typed-text");
     const cursorElement = document.querySelector(".cursor");
+    const juplText = document.querySelector(".jupl-text");
 
     const fullText = "JUPL";
     let index = 0;
 
     function typeWriterEffect() {
+        juplText.classList.remove("hidden"); // Zorgt ervoor dat de outline zichtbaar is
         if (index < fullText.length) {
             textElement.textContent += fullText[index];
-            textElement.style.color = "white"; // Zorg ervoor dat de tekst zichtbaar is
             index++;
             setTimeout(typeWriterEffect, 300); // Snelheid van het typen
         } else {
             // Laat de cursor 5 sec knipperen voordat alles verdwijnt
-            setTimeout(eraseText, 5000);
+            setTimeout(eraseText, 8000);
         }
     }
 
@@ -23,6 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
             setTimeout(eraseText, 100); // Snellere delete-snelheid
         } else {
             cursorElement.style.display = "none"; // Verberg de cursor tijdelijk
+            juplText.classList.add("hidden"); // Verberg de outline tijdens de lege fase
             setTimeout(restartTyping, 1000); // 1 sec pauze voordat het opnieuw begint
         }
     }
@@ -30,10 +32,19 @@ document.addEventListener("DOMContentLoaded", () => {
     function restartTyping() {
         index = 0;
         cursorElement.style.display = "inline"; // Cursor weer laten verschijnen
-        textElement.style.color = "transparent"; // Reset de tekstkleur
         typeWriterEffect(); // Start opnieuw
     }
 
     // Start het type-effect na een halve seconde
-    setTimeout(typeWriterEffect, 500);
+    setTimeout(typeWriterEffect, 800);
+
+    // Dynamische muis-tracking gradient op de outline
+    document.addEventListener("mousemove", (e) => {
+        const rect = juplText.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+
+        juplText.style.setProperty("--x", `${x}%`);
+        juplText.style.setProperty("--y", `${y}%`);
+    });
 });
