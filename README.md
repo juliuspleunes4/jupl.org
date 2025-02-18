@@ -43,3 +43,5 @@ For questions, suggestions, or collaboration opportunities, feel free to reach o
 ---
 
 © 2025 Jupl.org – Visualizing our Celestial Visitors
+
+Sponsored by: Lotus Flower IT ©
