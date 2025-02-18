@@ -22,23 +22,22 @@ nav {
     z-index: 100;
 }
 
-/* Logo linksboven */
+/* Logo */
 .logo {
     display: flex;
     align-items: center;
 }
 
 .logo img {
-    width: 50px; /* Pas aan naar gewenste grootte */
+    width: 50px; 
     height: auto;
 }
 
-/* Navbar rechts naast logo met een gap */
 .nav-links {
     display: flex;
     list-style: none;
     gap: 2rem;
-    margin-left: 3rem; /* Voegt ruimte tussen logo en navbar */
+    margin-left: 3rem; /* Spacing between logo and navbar */
 }
 
 .nav-links a {
@@ -58,18 +57,15 @@ nav {
     transition: color 0.3s ease-in-out;
 }
 
-
 #earth-container {
     position: fixed;
     bottom: 15%;
     right: 6%;
-    width: 250px; /* Zorg ervoor dat de grootte klopt */
+    width: 250px; 
     height: 250px;
-    z-index: 50; /* Zorgt dat het boven andere elementen ligt */
-    pointer-events: none; /* Zorgt dat het element niet klikt of interactief is */
+    z-index: 50; /* Displays earth on foreground */
+    pointer-events: none; 
 }
-
-
 
 /* Main Content */
 main {
@@ -81,7 +77,7 @@ main {
     padding: 2rem;
 }
 
-/* JUPL Animatie Container */
+/* JUPL Animation Container */
 .jupl-container {
     position: relative;
     height: 20vh;
@@ -96,9 +92,9 @@ main {
     text-align: center;
     margin-top: 15rem;
     margin-left: -20vw;
-    opacity: 0; /* Begin onzichtbaar */
+    opacity: 0; 
     animation: fadeInUp 1s ease-out forwards;
-    animation-delay: 0.3s; /* Kort na de JUPL animatie */
+    animation-delay: 0.3s; 
 }
 
 .buttons {
@@ -106,10 +102,8 @@ main {
     gap: 1rem;
     opacity: 0;
     animation: fadeInUp 1s ease-out forwards;
-    animation-delay: 0.6s; /* Knoppen verschijnen iets later */
+    animation-delay: 0.6s; 
 }
-
-
 
 .btn {
     color: #fff;
@@ -123,12 +117,10 @@ main {
     border-color: #5271ff;
 }
 
-/* Fade-in effect voor tekst en knoppen */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
-
 
 
 @keyframes fadeInUp {
@@ -142,30 +134,12 @@ main {
     }
 }
 .content {
-    animation-delay: 1s; /* Pas na 3 seconden */
+    animation-delay: 1s;
 }
 
 .buttons {
-    animation-delay: 1.3s; /* Knoppen verschijnen iets later */
+    animation-delay: 1.3s; 
 }
-
-
-/* GitHub Button */
-.github-button-container {
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    z-index: 100;
-}
-
-.github-button-frame {
-    width: 60px; /* Pas aan naar gewenste grootte */
-    height: 60px;
-    border: none;
-    background: transparent;
-}
-
-
 
 #starfield {
     position: fixed;
@@ -173,7 +147,7 @@ main {
     left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: -1; /* Zet het achter alle andere elementen */
+    z-index: -1; 
 }
 
 
@@ -185,7 +159,7 @@ main {
 
 
 
-/* JUPL Animatie */
+/* JUPL Animation */
 .jupl-text {
     font-size: 20vw;
     font-weight: 900;
@@ -245,7 +219,7 @@ main {
     opacity: 0;
 }
 
-/* Knipperende cursor */
+/* Blinking cursor */
 .cursor {
     font-size: 20vw;
     font-weight: 900;
